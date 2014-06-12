@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ClermontJS</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="./libs/css/reveal.min.css">
+		<link rel="stylesheet" href="./libs/css/theme/moon.css" id="theme">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/styles/monokai_sublime.min.css">
+		<link rel="stylesheet" href="./libs/css/zenburn.css">
+		<link rel="stylesheet" href="./libs/css/slide.css">
+		<!--[if lt IE 9]>
+    		<script src="lib/js/html5shiv.js"></script>
+    	<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-background="./images/nodejs.jpg">
+					<section>
+						<br><br><br><br><br><br>
+						<h2>Introduction to node.js </h2>
+						<p>
+							console.log('unleash javascript !');
+						</p>
+					</section>
+
+				</section>
+
+				<section data-background="./images/nodejs.jpg">
+
+					<section>
+						<br><br><br><br><br><br>
+						<h2>What is node.js ?</h2>
+					</section>
+
+					<section>
+						<h3>What is node.js ?</h3>
+						<br><br>
+						<ul>
+							<li>event-driven, non-blocking I/O.</li><br>
+							<li>Google Chrome V8 Engine.</li><br>
+							<li>JavaScript - async friendly.</li><br>
+							<li>NPM</li><br>
+							<li>standard library.</li><br>
+						</ul>
+					</section>
+					
+				</section>
+
+				<section data-background="./images/npm.jpg">
+
+					<section>
+						<br><br><br><br><br><br>
+						<h2>Node Packaged Modules</h2>
+						<p>Best package manager eveeeeer !</p>
+					</section>
+
+					<section>
+						<h3>Node Packaged Modules</h3>
+						<br><br>
+						<ul>
+							<li>77 679 packages (maven 71k+, nuget 23k+).</li><br>
+							<li>Bower, Grunt, Yo, CoffeeScript, TypeScript, Phonegap ...</li><br>
+							<li>global installation & local installation.</li><br>
+						</ul>
+					</section>
+
+					<section>
+						<br><br>
+						<h3>Global installation</h3>
+
+						Install :
+						<pre><code>
+npm install express -g
+						</code></pre>
+
+						Use it :
+						<pre><code>
+express myProject --ejs
+						</code></pre>
+					</section>
+
+					<section>
+						<br><br>
+						<h3>Local installation</h3>
+
+						Install :
+						<pre><code>
+npm install ejs
+						</code></pre>
+
+						Use it :
+						<pre class="js"><code>
+var ejs = require('ejs');
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>package.json</h3>
+						<pre class="json"><code>
+{
+  "name": "microscope-kernel",
+  "version": "0.0.1",
+  "description": "microscopejs generators engine base librairy",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "author": "benjamin Heintz",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "~2.1.0",
+    "inquirer": "~0.4.0",
+    "ejs": "~0.8.5",
+    "colors": "~0.6.2",
+    "fs-extra": "~0.8.1",
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-mocha-test": "^0.10.2",
+    "grunt-contrib-jshint": "~0.10.0",
+    "sinon": "~1.10.2",
+    "sinon-chai": "~2.5.0"
+  }
+}
+						</code></pre>
+					</section>
+				</section>
+
+				<section data-background="./images/module.png">
+
+					<section>
+						<br><br><br><br><br><br>
+						<h2>Modules</h2>
+						<p>
+							CommonJS
+						</p>
+					</section>
+
+					<section>
+						<h3>Modules</h3>
+						<br>
+						circle.js
+						<pre class="js">
+							<code>
+var PI = Math.PI;
+
+exports.area = function (r) {
+  return PI * r * r;
+};
+
+exports.circumference = function (r) {
+  return 2 * PI * r;
+};
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>Modules</h3>
+						<br>
+						foo.js
+						<pre class="js">
+							<code>
+var circle = require('./circle.js');
+var area = circle.area(4);
+console.log(area);
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>Modules</h3>
+						<br>
+						Person.js
+						<pre class="js">
+							<code>
+var Person = function(name, age){
+  this.name = name;
+  this.age = age;
+};
+
+Person.prototype.sayHello = function(){
+  console.log('hello ' + this.name + ', '+ this.age +' years old');
+};
+
+module.exports = Person;
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>Modules</h3>
+						<br>
+						foo.js
+						<pre class="js">
+							<code>
+var Person = require('./Person.js');
+var person = new Person('bhtz', 26);
+person.sayHello();
+							</code>
+						</pre>
+					</section>
+					
+				</section>
+
+				<section data-background="./images/node.jpg">
+					<section>
+						<br><br><br><br><br><br>
+						<h2>Standard library</h2>
+					</section>
+
+					<section>
+						<h3>standard library</h3>
+						<br><br>
+						<ul>
+							<li>os</li>
+							<li>filesystem</li>
+							<li>buffer</li>
+							<li>process</li>
+							<li>child_process</li>
+							<li>stream</li>
+							<li>assert</li>
+							<li>http</li>
+							<li>net</li>
+							<li>......</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>HTTP server</h3>
+						<br><br>
+						<p>
+							http server in standard library.
+						</p>
+						<pre class="js">
+							<code>
+var http = require('http');
+
+http.createServer(function (request, response) {
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.end('Hello World\n');
+}).listen(3000);
+ 
+console.log('Adresse du serveur: http://localhost:3000/');
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>TCP Socket</h3>
+						<br><br>
+						<pre class="js">
+							<code>
+// Load the net module to create a tcp server.
+var net = require('net');
+
+// Setup a tcp server
+var server = net.createServer(function (socket) {
+
+  // Every time someone connects, tell them hello and then close the connection.
+  socket.addListener("connect", function () {
+    console.log("Connection from " + socket.remoteAddress);
+    socket.end("Hello World\n");
+  });
+
+});
+
+// Fire up the server bound to port 7000 on localhost
+server.listen(7000, "localhost");
+							</code>
+						</pre>
+					</section>
+
+				</section>
+
+				<section data-background="./images/webdevelopment.png">
+					<section>
+						<br><br><br><br><br>
+						<h2>Web applications</h2>
+					</section>
+
+					<section>
+						<br><br><br><br><br>
+						<h2>Express.js</h2>
+						<p>
+							web application framework for node
+						</p>
+					</section>
+
+					<section>
+						<h3>Express.js</h3>
+						<pre class="js">
+							<code>
+var express = require('express');
+var app = express();
+
+app.get('/', function(req, res){
+  res.send('hello world');
+});
+
+app.get('/article/show/:id', function(req, res){
+  db.Articles.find(req.params.id, function(article){
+  	res.json(article);
+  });
+});
+
+app.listen(3000);
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>Express.js</h3>
+						<br><br>
+						<ul>
+							<li>Templating (EJS, Jade, JSHTML)</li><br>
+							<li>Authentication provider (passport.js, everyAuth)</li><br>
+							<li>logger (log4js)</li><br>
+							<li>ORM (Sequelize, Mongoose)</li><br>
+							<li>Mailing (nodemailer)</li><br>
+						</ul>
+					</section>
+
+
+				</section>
+
+				<section data-background="./images/realtime.jpg">
+					
+					<section>
+						<br><br><br><br><br>
+						<h2>Real time web</h2>
+					</section>
+
+					<section>
+						<h3>Socket.IO</h3>
+						<p>
+							"featuring the fastest and most reliable real-time engine"
+						</p>
+						<br><br>
+						<ul>
+							<li>WebSocket</li>
+							<li>Adobe® Flash® Socket</li>
+							<li>AJAX long polling</li>
+							<li>AJAX multipart streaming</li>
+							<li>Forever Iframe</li>
+							<li>JSONP Polling</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Socket.IO</h3>
+						<pre class="js">
+							<code>
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+io.on('connection', function(socket){
+
+	console.log('a user connected');
+
+	socket.on('message', function(msg){
+		console.log('message: ' + msg);
+	});
+
+	socket.on('disconnect', function(){
+		console.log('user disconnected');
+	});
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
+							</code>
+						</pre>
+					</section>
+
+					<section>
+						<h3>webRTC.IO</h3>
+						<br><br>
+						<ul>
+							<li>An abstraction layer for webRTC.</li><br>
+							<li>Peer to peer web browser.</li><br>
+							<li>video & audio in realtime.</li><br>
+						</ul>
+					</section>
+
+				</section>
+
+				<section
+				data-background="./images/programming.jpg">
+					
+					<section>
+						<br><br><br><br><br>
+						<h2>Development</h2>
+						<p>
+							JavaScript .... seriously ?!!
+						</p>
+					</section>
+
+					<section data-background="./images/gruntjs.jpg">
+						<h3>Development</h3>
+						<br><br>
+						<ul>
+							<li>EcmaScript 6 -- harmony</li><br>
+							<li>Unit testing (mocha, chai, sinon)</li><br>
+							<li>Code Quality Tool (JSHint, JSLint)</li><br>
+							<li>CoffeeScript / TypeScript</li><br>
+							<li>Task runner (grunt, gulp)</li><br>
+							<li>prototyping with yeoman</li><br>
+						</ul>
+					</section>
+
+					<section data-background="./images/sublimetext.jpg">
+						<h3>IDE - Tools</h3>
+						<br><br>
+						<ul>
+							<li>Eclipse & Visual Studio plugins</li><br>
+							<li>WebStorm</li><br>
+							<li>Sublime Text, VIM.</li><br>
+							<li>node-inspector debugger</li><br>
+						</ul>
+					</section>
+
+				</section>
+
+				<section data-background="http://www.redorbit.com/media/uploads/2012/06/137188913-617x416.jpg">
+					
+					<section>
+						<br><br><br><br><br>
+						<h2>Hosting</h2>
+					</section>
+
+					<section>
+						<h3>Cloud ready</h3>
+						<br><br>
+						<ul>
+							<li>Windows azure</li><br>
+							<li>Amazon Web Services</li><br>
+							<li>Heroku</li><br>
+							<li>AppFog</li><br>
+							<li>...</li><br>
+						</ul>
+					</section>
+
+					<section>
+						<h3>PM2</h3>
+						<br><br>
+						<ul>
+							<li>load balancing.</li><br>
+							<li>cluster.</li><br>
+							<li>monitoring.</li><br>
+							<li>web services.</li><br>
+							<li>json run configuration.</li><br>
+						</ul>
+					</section>
+				</section>
+
+				<section data-background="./images/entreprise.jpeg">
+					
+					<section>
+						<br><br><br><br><br>
+						<h2>Enterprise ready ?</h2>
+					</section>
+
+					<section>
+						<h3>Enterprise ready ?</h3>
+						<ul>
+							<li>Azure mobile services</li><br>
+							<li>LinkedIn</li><br>
+							<li>Uber</li><br>
+							<li>MySpace</li><br><br>
+							<li>Grunt.js</li><br>
+							<li>CasperJS - PhantomJS</li>
+						</ul>
+					</section>
+				</section>
+
+				<section data-background="./images/questions.jpg">
+					
+					<section>
+						<br><br><br><br><br>
+						<h2>Questions ?</h2>
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="./libs/js/head.min.js"></script>
+		<script src="./libs/js/reveal.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/highlight.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/languages/javascript.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.0/languages/json.min.js"></script>
+		<script src="./libs/js/main.js"></script>
+
+	</body>
+</html>
