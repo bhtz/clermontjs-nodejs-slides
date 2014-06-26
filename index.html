@@ -46,6 +46,32 @@
 							<li>standard library.</li><br>
 						</ul>
 					</section>
+
+					<section>
+						<h3>Single thread - Event loop</h3>
+						<br><br>
+						<img src="./images/eventloop.png">
+					</section>
+
+					<section>
+						<h3>Asynchronous I/O</h3>
+						<br><br>
+						<pre class="js">
+							<code>
+var fs = require('fs');
+
+fs.stat('/etc/passwd', function(err, stats) {
+  if (err) return;
+  if (stats.isFile()) {
+    fs.readFile('/etc/passwd', function(err, data) {
+      if (err) throw err;
+      console.log(data);
+    });
+  }
+});		
+							</code>
+						</pre>
+					</section>
 					
 				</section>
 
@@ -253,7 +279,6 @@ console.log('Adresse du serveur: http://localhost:3000/');
 
 					<section>
 						<h3>TCP Socket</h3>
-						<br><br>
 						<pre class="js">
 							<code>
 // Load the net module to create a tcp server.
@@ -316,16 +341,45 @@ app.listen(3000);
 
 					<section>
 						<h3>Express.js</h3>
+						<p>Awesome middlewares !</p>
 						<br><br>
 						<ul>
 							<li>Templating (EJS, Jade, JSHTML)</li><br>
 							<li>Authentication provider (passport.js, everyAuth)</li><br>
-							<li>logger (log4js)</li><br>
+							<li>Logging API (log4js)</li><br>
 							<li>ORM (Sequelize, Mongoose)</li><br>
 							<li>Mailing (nodemailer)</li><br>
 						</ul>
 					</section>
 
+					<section>
+						<h3>EJS Template</h3>
+						<br><br>
+						<img src="./images/ejs.png" style="width: 100%;">
+					</section>
+
+					<section>
+						<h3>JADE Template</h3>
+						<pre>
+							<code class="jade">
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    script(type='text/javascript').
+      if (foo) {
+         bar(1 + 5)
+      }
+  body
+    h1 Jade - node template engine
+    #container.col
+      if youAreUsingJade
+        p You are amazing
+      else
+        p Get on it!
+							</code>
+						</pre>
+					</section>
 
 				</section>
 
@@ -470,15 +524,26 @@ http.listen(3000, function(){
 
 					<section>
 						<h3>Enterprise ready ?</h3>
+						<br><br>
 						<ul>
 							<li>Azure mobile services</li><br>
 							<li>LinkedIn</li><br>
-							<li>Uber</li><br>
-							<li>MySpace</li><br><br>
-							<li>Grunt.js</li><br>
-							<li>CasperJS - PhantomJS</li>
+							<li>Paypal</li><br>
+							<li>Uber</li><br><br>
 						</ul>
 					</section>
+
+					<section>
+						<h3>Already here !</h3>
+						<br><br>
+						<ul>
+							<li>Grunt.js</li><br>
+							<li>CasperJS - PhantomJS</li><br>
+							<li>Mobile hyrid apps - phonegap cli</li><br>
+							<li>CSS Preprocessor - less.js / stylus</li>
+						</ul>
+					</section>
+							
 				</section>
 
 				<section data-background="./images/questions.jpg">
